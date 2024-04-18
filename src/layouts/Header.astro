@@ -23,7 +23,7 @@ import Drawer from "./Drawer";
 <header id="header-item" class="header-absolute">
   <div class="img-logo">
     <a href="/" rel="noreferrer"
-      ><img src="./logo.webp" alt="logo hankook alvillanta" /></a
+      ><img src="./logo.webp" alt="logo hankook alvillanta" width="200px" /></a
     >
     <Drawer client:visible>
       <div class="item-menu-button">
@@ -35,18 +35,40 @@ import Drawer from "./Drawer";
       </div>
     </Drawer>
   </div>
-  <div class="item-menu">
-    <ul>
-      <li><a href="/">Inicio</a></li>
-      <li><a href="/about-us">Nosotros</a></li>
-      <li><a href="/products">Productos</a></li>
-      <li>
-        <a href="/contact" class="anchor-icon">
-          <Icon pack="mdi" name="phone" size={19} />
-          Contacto
-        </a>
-      </li>
-    </ul>
+
+  <div class="header-wrapper">
+    <div class="top-header">
+      <ul>
+        <li>
+          <a href="" class="anchor-icon">
+            <Icon class="icon" pack="mdi" name="headphones" size={19} />
+            Call Center
+          </a>
+
+          <span>(01) 751 0557</span>
+        </li>
+        <li>
+          <a href="" class="anchor-icon">
+            <Icon class="icon" pack="mdi" name="phone" size={19} />
+            Ventas
+          </a>
+          <span> +51 900 959 965</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="item-menu">
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/about-us">Nosotros</a></li>
+        <li><a href="/products">Productos</a></li>
+      </ul>
+
+      <a href="/contact" class="anchor-icon">
+        <Icon pack="mdi" name="phone" size={19} />
+        Contacto
+      </a>
+    </div>
   </div>
 </header>
 
@@ -76,7 +98,8 @@ import Drawer from "./Drawer";
   //DESKTOP
   @media (min-width: 920px) {
     .header-absolute {
-      position: absolute;
+      position: relative;
+      background: white;
       top: 0;
       z-index: 700;
       display: flex;
@@ -100,9 +123,31 @@ import Drawer from "./Drawer";
         }
       }
 
+      .top-header {
+        padding: 1em;
+
+        .anchor-icon {
+          .icon {
+            color: #f1ef0d;
+          }
+        }
+
+        ul {
+          display: flex;
+          gap: 1em;
+        }
+
+        span,
+        a {
+          color: black;
+        }
+      }
+
       .item-menu {
+        padding: 1em;
         display: flex;
-        justify-content: end;
+        justify-content: flex-start;
+        flex-grow: 1;
 
         ul {
           list-style: none;
@@ -113,7 +158,7 @@ import Drawer from "./Drawer";
 
           li a {
             text-decoration: none;
-            color: #fff;
+            color: Black;
           }
 
           li .anchor-icon {

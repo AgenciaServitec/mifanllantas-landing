@@ -1,12 +1,10 @@
 ---
 import { BaseLayout } from "../layouts";
 import {
-  DeliverySection,
   MapLocation,
   SectionWrapper,
-  Title,
-  Button,
   AboutUsComponent,
+  ContactSection,
 } from "../components";
 import BrandsSection from "../components/home/BrandsSection.astro";
 import ProductsSection from "../components/home/ProductsSection.astro";
@@ -16,16 +14,6 @@ import ProductsSection from "../components/home/ProductsSection.astro";
   <main>
     <div class="banner-wrapper">
       <img src="./images/fondo-banner.webp" alt="banner hankook alvillanta" />
-      <!-- <div class="wrapper-content">
-        <Title title="Tenemos las mejores" withMargin={false}>
-          llantas para tu vehiculo
-        </Title>
-        <div class="quote-wrapper">
-          <a href="https://api.whatsapp.com/send?phone=981387871&text=Me%20interesa%20saber%20más%20sobre%20el%20precio%20de%20sus%20productos">
-            <Button type="tertiary">Contáctanos</Button>
-          </a>
-        </div>
-      </div> -->
     </div>
 
     <SectionWrapper>
@@ -36,9 +24,7 @@ import ProductsSection from "../components/home/ProductsSection.astro";
       <ProductsSection />
     </SectionWrapper>
 
-    <SectionWrapper>
-      <DeliverySection />
-    </SectionWrapper>
+    <ContactSection />
 
     <SectionWrapper>
       <BrandsSection />

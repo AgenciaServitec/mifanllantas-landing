@@ -1,45 +1,77 @@
 ---
-import { IconItem, Divider } from "../components";
+import { Divider } from "../components";
+import Icon from "astro-icon";
 ---
 
 <footer class="footer">
   <Divider />
 
-  <img src="./logo.webp" alt="logo" />
-
-  <span class="slogan-description">
-    Te brindamos una atención empática y profesional. Garantizamos nuestros
-    productos y servicios: Llantas, aros y mantenimiento. Las mejores llantas de
-    auto.</span
-  >
-
-  <section class="icons-list">
-    <IconItem title="Contáctanos" span="981387871" />
-    <IconItem
-      title="Ubicación"
-      span="Av. La Marina Nro. 3410"
-      path="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
-    />
-    <IconItem
-      title="Email"
-      span="ventas3@alvillanta.com"
-      path="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
-    />
-    <IconItem
-      title="Lunes-viernes"
-      span="07:00 - 22:00"
-      path="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"
-    />
-  </section>
+  <div class="footer-top">
+    <div class="footer-top__information">
+      <img src="./logo-mifanllantas.webp" alt="logo" />
+      <p>
+        Ofrecemos un servicio amable y experto. Aseguramos la calidad de
+        nuestros productos y servicios: llantas y mantenimiento. Las llantas de
+        auto más confiables.
+      </p>
+      <div class="footer-top__social-networks">
+        <a href="#"><span>Facebook</span><Icon pack="mdi" name="facebook" size={20} /></a>
+        <a href="#"><span>Instagram</span><Icon pack="mdi" name="instagram" size={20} /></a>
+        <a href="#"><span>Tiktok</span><Icon pack="ic" name="baseline-tiktok" size={20} /></a>
+        <a
+          href="https://api.whatsapp.com/send/?phone=51900959965&text=Hola%2C%20vengo%20de%20mifanllantas.com%20%C2%BFPodr%C3%ADan%20brindarme%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20llantas%3F"
+          target="_blank"><span>Whatsapp</span> <Icon pack="mdi" name="whatsapp" size={20} /></a
+        >
+      </div>
+    </div>
+    <div class="footer-top__sections">
+      <h3>Secciones</h3>
+      <ul>
+        <li><a href="#about">Nosotros</a></li>
+        <li><a href="#products">Productos</a></li>
+        <li><a href="#brands">Marcas</a></li>
+        <li><a href="#location">Ubicación</a></li>
+      </ul>
+    </div>
+    <div class="footer-top__contacts">
+      <h3>Contácto</h3>
+      <div>
+        <span>Teléfono:</span>
+        <p>
+          <Icon pack="mdi" name="cellphone" size={20} />
+          <a href="tel:900959965">+51 900 959 965</a>
+        </p>
+        <p>
+          <Icon pack="mdi" name="phone" size={20} />
+          <a href="tel:017510557">(01) 7510557</a>
+        </p>
+      </div>
+      <div>
+        <span>Correo:</span>
+        <p>
+          <Icon pack="mdi" name="gmail" size={20} />
+          <a href="mailto:ventasmifansac@multillantasmf.com"
+            >ventasmifansac@multillantasmf.com</a
+          >
+        </p>
+      </div>
+      <div>
+        <span>Dirección:</span>
+        <p>
+          <Icon pack="mdi" name="location" size={20} />
+          <a href="https://maps.app.goo.gl/1CJNLE9kMRh2ahSi6" target="_blank"
+            >Av. Canadá 935, La Victoria</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
 
   <div class="footer__bottom">
     <p>
-      Copyrights © 2023 alvillanta Todos los derechos reservados - Desarrollado
-      por <a
-        href="https://agenciaservitec.com"
-        target="_blank"
-        class="color__primary">Agencia Servitec</a
-      >
+      Copyrights © 2024 mifanllantas Todos los derechos reservados -
+      Desarrollado por 
+      <a href="https://agenciaservitec.com" target="_blank">Agencia Servitec</a>
     </p>
   </div>
 </footer>
@@ -49,23 +81,107 @@ import { IconItem, Divider } from "../components";
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 2em;
+    padding: 0 1em;
 
-    img {
-      width: 10em;
-      margin: 1.2em auto;
+    a {
+      text-decoration: none;
+      color: #fff;
+      &:hover {
+        color: #fff200;
+        transition-duration: 0.6s;
+      }
     }
-    .slogan-description {
-      text-align: center;
-      color: #ffffff8c;
-      padding: 1em;
-    }
-    .icons-list {
-      padding: 2em 1.5em;
-      gap: 1em;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(12em, auto));
+
+    .footer-top {
       width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      gap: 2em;
+      margin: 3rem 0;
+
+      h3,
+      span {
+        color: #768290;
+      }
+
+      > div {
+        flex: 1 1 20em;
+      }
+
+      &__information {
+        background-color: #fff;
+        color: #000;
+        padding: 0.8em;
+        border-radius: 0.5em;
+        max-width: 23rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        img {
+          width: 12em;
+        }
+
+        p {
+          margin: 1em 0 2em;
+        }
+      }
+
+      &__social-networks {
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+        a {
+          width: max-content;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid #000;
+          border-radius: 50%;
+          padding: 0.5em;
+          color: #000;
+          &:hover {
+            background-color: #fff200;
+            transition-duration: 0.6s;
+          }
+          span{
+            display: none;
+          }
+        }
+        color: #000;
+      }
+
+      &__sections {
+        color: #fff;
+        h3 {
+          margin-bottom: 1em;
+        }
+
+        ul {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 1em;
+        }
+      }
+
+      &__contacts {
+        h3 {
+          margin-bottom: 1em;
+        }
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5em;
+          margin-bottom: 1em;
+        }
+        p {
+          display: flex;
+          gap: 0.5em;
+          align-items: center;
+        }
+      }
     }
     &__bottom {
       background: #000;
@@ -86,6 +202,16 @@ import { IconItem, Divider } from "../components";
     footer {
       .slogan-description {
         max-width: 50%;
+      }
+    }
+  }
+
+  @media (min-width: 992px) {
+    .footer {
+      .footer-top {
+        > div {
+          flex: none;
+        }
       }
     }
   }

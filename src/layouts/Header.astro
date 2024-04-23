@@ -19,7 +19,6 @@ import Drawer from "./Drawer";
           <div class="item-menu-button">
             <IconFontAwesome
               width="30px"
-              color="#f1ef0d"
               path="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
             />
           </div>
@@ -77,21 +76,34 @@ import Drawer from "./Drawer";
     }
 
     .top-header {
-      padding: 0 1em;
+      background: url("../../images/bg-header-2.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: bottom right;
 
       .img-logo {
         display: flex;
         justify-content: space-between;
-        padding: 0.5em 0;
+        padding: 0.5em 1em;
         img {
           width: 7em;
           height: auto;
           object-fit: contain;
         }
+
+        .item-menu-button {
+          padding: 0.5em 0.7em;
+          background: #fff;
+          color: #000;
+        }
       }
 
       .contact-info {
-        padding-bottom: 0.5em;
+        padding: 0.5em 1em;
+        background: #fff;
+        @media (min-width: 970px) {
+          background: transparent;
+        }
       }
 
       .anchor-icon {
@@ -103,6 +115,9 @@ import Drawer from "./Drawer";
       ul {
         display: flex;
         gap: 1em;
+        list-style: none;
+        padding: 0;
+        margin: 0;
       }
 
       span,
@@ -161,21 +176,24 @@ import Drawer from "./Drawer";
           }
         }
 
-        .anchor-icon {
-          .icon {
-            color: #f1ef0d;
-          }
-        }
-
         ul {
           display: flex;
           gap: 1em;
-        }
-
-        span,
-        a {
-          color: black;
-          text-decoration: auto;
+          li {
+            background: #fff;
+            padding: 0.3em 3em;
+            clip-path: polygon(8% 0, 100% 0%, 93% 100%, 0% 100%);
+            .anchor-icon {
+              .icon {
+                color: #131313;
+              }
+            }
+            span,
+            a {
+              color: black;
+              text-decoration: auto;
+            }
+          }
         }
       }
 
@@ -183,7 +201,7 @@ import Drawer from "./Drawer";
         padding: 1em;
         width: 100%;
         display: flex;
-        background: yellow;
+        background: #141414;
         justify-content: start;
         gap: 2em;
         font-size: 1em;
@@ -198,7 +216,7 @@ import Drawer from "./Drawer";
 
           li a {
             text-decoration: none;
-            color: Black;
+            color: #fff;
           }
         }
       }

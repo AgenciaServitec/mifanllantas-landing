@@ -1,67 +1,78 @@
 ---
 const errors = { fullName: "", email: "", phoneNumber: "", message: "" };
 
+const validateField = (value, label, name) => {
+  if (name === "message") return;
+  if (value.length < 1) {
+    errors[name] = `Ingrese ${label}`;
+  }
+};
+
 if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
 
-    const formData = {
-      fullName: data.get("fullName"),
-      email: data.get("email"),
-      phoneNumber: data.get("phoneNumber"),
-      message: data.get("message"),
-    };
+    const formData = [
+      {
+        value: data.get("fullName"),
+        label: "Nombres y Apellidos",
+        name: "fullName",
+      },
+      {
+        value: data.get("email"),
+        label: "Correo",
+        name: "email",
+      },
+      {
+        value: data.get("phoneNumber"),
+        label: "Teléfono",
+        name: "phoneNumber",
+      },
+      {
+        value: data.get("message"),
+        label: "Mensaje",
+        name: "message",
+      },
+    ];
 
-    if (typeof formData.fullName !== "string" || formData.fullName.length < 1) {
-      errors.fullName = "Ingrese su nombre. ";
-    }
+    formData.map((field) => {
+      validateField(field.value, field.label, field.name);
+    });
 
-    if (typeof formData.email !== "string" || formData.email.length < 1) {
-      errors.email = "Ingrese su correo. ";
-    }
+    const hasErrors = Object.values(errors).some((msg) => msg);
 
-    if (
-      typeof formData.phoneNumber !== "string" ||
-      (formData.phoneNumber.length < 1 && formData.phoneNumber.length > 9)
-    ) {
-      errors.phoneNumber = "Ingrese su número de celular. ";
+    console.log({ hasErrors });
+
+    if (hasErrors) {
+      throw new Error(JSON.stringify(errors));
     }
 
     const mapContact = (formData) => ({
       contact: {
-        fullName: formData.fullName,
-        email: formData.email,
+        fullName: formData?.[0].value || "",
+        email: formData?.[1].value || "",
         phone: {
           countryCode: "+51",
-          number: formData.phoneNumber,
+          number: formData?.[2].value || "",
         },
-        message: formData.message,
+        message: formData?.[3].value || "",
         hostname: "mifanllantas.com",
       },
     });
 
-    console.log(mapContact(formData));
+    await fetch("https://api-servitecsales.web.app/emails/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(mapContact(formData)),
+    });
 
-    const response = await fetch(
-      "https://api-servitecsales.web.app/emails/contact",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(mapContact(formData)),
-      }
-    );
-
-    const responseJson = await response.json();
-
-    console.log(responseJson);
-
-    // Do something with the data
+    return Astro.redirect("/success")
   } catch (error) {
     if (error instanceof Error) {
-      console.error(error.message);
+      console.error("Error:", error.message);
     }
   }
 }

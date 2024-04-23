@@ -41,8 +41,6 @@ if (Astro.request.method === "POST") {
 
     const hasErrors = Object.values(errors).some((msg) => msg);
 
-    console.log({ hasErrors });
-
     if (hasErrors) {
       throw new Error(JSON.stringify(errors));
     }

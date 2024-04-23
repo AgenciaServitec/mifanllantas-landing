@@ -1,6 +1,6 @@
 ---
+import { ContactForm } from "../../components";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { ContactFormComponent } from "../../components";
 ---
 
 <BaseLayout>
@@ -8,7 +8,7 @@ import { ContactFormComponent } from "../../components";
     <div class="error-message-wrapper" id="error-message-wrapper"></div>
     <section>
       <span>Contacto</span>
-      <ContactFormComponent key={new Date()} />
+      <ContactForm />
     </section>
   </main>
 </BaseLayout>

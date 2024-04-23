@@ -8,29 +8,46 @@ import Icon from "astro-icon";
 
   <div class="footer-top">
     <div class="footer-top__information">
-      <img src="./logo-mifanllantas.webp" alt="logo" />
+      <img src="../../logo-mifanllantas.webp" alt="logo" />
       <p>
         Ofrecemos un servicio amable y experto. Aseguramos la calidad de
         nuestros productos y servicios: llantas y mantenimiento. Las llantas de
         auto más confiables.
       </p>
       <div class="footer-top__social-networks">
-        <a href="#"><span>Facebook</span><Icon pack="mdi" name="facebook" size={20} /></a>
-        <a href="#"><span>Instagram</span><Icon pack="mdi" name="instagram" size={20} /></a>
-        <a href="#"><span>Tiktok</span><Icon pack="ic" name="baseline-tiktok" size={20} /></a>
+        <a
+          href="https://www.facebook.com/profile.php?id=100083015032845"
+          target="_blank"
+          ><span>Facebook</span><Icon pack="mdi" name="facebook" size={20} /></a
+        >
+        <!--<a href="#"-->
+        <!--  ><span>Instagram</span><Icon-->
+        <!--    pack="mdi"-->
+        <!--    name="instagram"-->
+        <!--    size={20}-->
+        <!--  /></a-->
+        <!--&gt;-->
+        <!--<a href="#"-->
+        <!--  ><span>Tiktok</span><Icon-->
+        <!--    pack="ic"-->
+        <!--    name="baseline-tiktok"-->
+        <!--    size={20}-->
+        <!--  /></a-->
+        <!--&gt;-->
         <a
           href="https://api.whatsapp.com/send/?phone=51900959965&text=Hola%2C%20vengo%20de%20mifanllantas.com%20%C2%BFPodr%C3%ADan%20brindarme%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20llantas%3F"
-          target="_blank"><span>Whatsapp</span> <Icon pack="mdi" name="whatsapp" size={20} /></a
+          target="_blank"
+          ><span>Whatsapp</span>
+          <Icon pack="mdi" name="whatsapp" size={20} /></a
         >
       </div>
     </div>
     <div class="footer-top__sections">
-      <h3>Secciones</h3>
+      <h3>Paginas</h3>
       <ul>
-        <li><a href="#about">Nosotros</a></li>
-        <li><a href="#products">Productos</a></li>
-        <li><a href="#brands">Marcas</a></li>
-        <li><a href="#location">Ubicación</a></li>
+        <li><a href="/about-us">Nosotros</a></li>
+        <li><a href="/products">Productos</a></li>
+        <li><a href="/contact">Contacto</a></li>
       </ul>
     </div>
     <div class="footer-top__contacts">
@@ -70,7 +87,7 @@ import Icon from "astro-icon";
   <div class="footer__bottom">
     <p>
       Copyrights © 2024 mifanllantas Todos los derechos reservados -
-      Desarrollado por 
+      Desarrollado por
       <a href="https://agenciaservitec.com" target="_blank">Agencia Servitec</a>
     </p>
   </div>
@@ -145,7 +162,7 @@ import Icon from "astro-icon";
             background-color: #fff200;
             transition-duration: 0.6s;
           }
-          span{
+          span {
             display: none;
           }
         }
@@ -211,6 +228,9 @@ import Icon from "astro-icon";
       .footer-top {
         > div {
           flex: none;
+          p {
+            font-size: 0.9em;
+          }
         }
       }
     }

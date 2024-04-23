@@ -1,7 +1,7 @@
 ---
 interface Props {
-  title: string;
-  withMargin: boolean;
+  title?: string;
+  withMargin?: boolean;
 }
 
 const { title, withMargin = true } = Astro.props;
@@ -30,7 +30,7 @@ const { title, withMargin = true } = Astro.props;
     span {
       margin-top: 0.1em;
       line-height: 0.85;
-      color: #f40f0f;
+      color: var(--color-primary);
       font-size: 1.5em;
       display: block;
     }

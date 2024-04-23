@@ -1,6 +1,6 @@
 ---
 interface Props {
-  type?: "primary" | "secondary" | "tertiary";
+  type?: "primary" | "secondary";
   styleLine?: Record<string, string>;
 }
 
@@ -24,19 +24,15 @@ const { type = "primary", styleLine } = Astro.props;
     cursor: pointer;
   }
   .primary {
-    background-color: #f40f0f;
-    color: #fff;
-  }
-  .secondary {
-    background-color: #8b8b8b;
-    color: #fff;
-  }
-  .tertiary {
     margin: 0 auto;
     font-size: 1.5em;
     text-transform: upperCase;
     font-style: italic;
-    background-color: #fff200;
+    background-color: var(--color-primary);
     color: #000;
+  }
+  .secondary {
+    background-color: #8b8b8b;
+    color: #fff;
   }
 </style>

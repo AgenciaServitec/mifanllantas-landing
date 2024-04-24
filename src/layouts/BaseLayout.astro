@@ -6,11 +6,11 @@ import { ButtonFloating } from "../components";
 import { CallButton } from "../components";
 
 interface Props {
-  title: string;
+  title?: string;
 }
 
 const {
-  title = "Alvillanta | Ofertas | Venta de Neumáticos y Llantas de calidad",
+  title = "Multillantas MF Peru",
 } = Astro.props;
 ---
 
@@ -21,7 +21,7 @@ const {
 
     <meta
       name="description"
-      content="Somos una empresa importadora Multimarca de Llantas o Neumáticos para Autos, Camionetas y Camiones al mejor precio del mercado. Ofrecemos variedad de tamaños de llantas y aros, con marcas reconocidas como Michelin, Continental, Pirelli, Yokohama, Goodyear, entre otras. ¡Disfruta de promociones y ofertas con nosotros!"
+      content="En Multillantas MF Peru, ofrecemos una variedad de neumáticos para que encuentres el ideal para tu vehículo, sin importar tu presupuesto o el tipo de auto que tengas. Estamos aquí para ayudarte a elegir la mejor opción."
     />
     <meta
       name="keywords"
@@ -29,7 +29,7 @@ const {
     />
 
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 

@@ -1,106 +1,134 @@
 ---
 const brands = [
   {
-    name: "AEOLUS",
-    imageUrl: "../../images/logo-aelus.webp",
+    name: "BFGOODRICH",
+    imageUrl: "/images/brands/bf-goodrich.webp",
   },
   {
-    name: "BRIDGESTONE",
-    imageUrl: "../../images/logo-bridgestone.webp",
+    name: "MICHELIN",
+    imageUrl: "/images/brands/michelin.webp",
   },
   {
     name: "CONTINENTAL",
-    imageUrl: "../../images/continental.webp",
+    imageUrl: "/images/brands/continental.webp",
   },
   {
-    name: "DELINTE",
-    imageUrl: "../../images/delinte.webp",
+    name: "PIRELLI",
+    imageUrl: "/images/brands/pirelli.webp",
   },
   {
-    name: "DUNLOP TIRES",
-    imageUrl: "../../images/dunlop.webp",
+    name: "KUMHO TYRE",
+    imageUrl: "/images/brands/kumho-tyre.webp",
   },
   {
-    name: "FALKEN",
-    imageUrl: "../../images/falken.webp",
+    name: "DUNLOP",
+    imageUrl: "/images/brands/dunlop.webp",
   },
   {
-    name: "FEDERAL",
-    imageUrl: "../../images/federal.webp",
-  },
-  {
-    name: "FIRESTONE",
-    imageUrl: "../../images/firestone.webp",
-  },
-  {
-    name: "GENERAL TIRE",
-    imageUrl: "../../images/general-tire.webp",
-  },
-  {
-    name: "GOODYEAR",
-    imageUrl: "../../images/good-year.webp",
-  },
-  {
-    name: "GT RADIAL",
-    imageUrl: "../../images/gt-radial.webp",
-  },
-  {
-    name: "KUMHO TIRE",
-    imageUrl: "../../images/kumho-tyre.webp",
-  },
-  {
-    name: "TOYO TIRES",
-    imageUrl: "../../images/toyo-tires.webp",
-  },
-  {
-    name: "TRIANGLE",
-    imageUrl: "../../images/triangle.webp",
-  },
-  {
-    name: "WESTLAKE",
-    imageUrl: "../../images/west-lake.webp",
+    name: "BRIDGESTONE",
+    imageUrl: "/images/brands/bridgestone.webp",
   },
   {
     name: "YOKOHAMA",
-    imageUrl: "../../images/yokohama.webp",
+    imageUrl: "/images/brands/yokohama.webp",
+  },
+  {
+    name: "GOODYEAR",
+    imageUrl: "/images/brands/good-year.webp",
+  },
+  {
+    name: "HANKOOK",
+    imageUrl: "/images/brands/hankook.webp",
+  },
+  {
+    name: "FIRESTONE",
+    imageUrl: "/images/brands/firestone.webp",
+  },
+  {
+    name: "GENERAL TIRE",
+    imageUrl: "/images/brands/general-tire.webp",
+  },
+  {
+    name: "NEXEN TIRE",
+    imageUrl: "/images/brands/nexen-tire.webp",
+  },
+  {
+    name: "OVATION TIRES",
+    imageUrl: "/images/brands/ovation-tires.webp",
   },
 ];
 ---
 
 <div class="brands-wrapper">
-  <ul class="brands">
-    {
-      brands.map((brand, index) => (
-        <li key={index} class="brand">
-          <img src={brand.imageUrl} alt={brand.name} />
-        </li>
-      ))
-    }
-  </ul>
+  <div class="brands-wrapper__container">
+    <ul class="brands-list">
+      {
+        brands.map((brand) => (
+          <li class="brands-list__item">
+            <img src={brand.imageUrl} alt={brand.name} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div class="brands-wrapper__container">
+    <ul class="brands-list">
+      {
+        brands.map((brand) => (
+          <li class="brands-list__item">
+            <img src={brand.imageUrl} alt={brand.name} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </div>
 
 <style lang="scss">
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
   .brands-wrapper {
-    padding: 3em 1em 1em 1em;
-    .brands {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    padding: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+
+    &:hover .brands-list {
+      animation-play-state: paused;
+    }
+
+    &__container {
+      display: inline-block;
+      margin-left: 1em;
+    }
+  }
+
+  .brands-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1em;
+    max-width: 100%;
+    animation: 30s slide infinite linear;
+
+    &__item {
+      background: #fff;
+      border-radius: 1em;
+      padding: 0.2em 1em;
       display: flex;
-      gap: 1em;
-      max-width: 100%;
-      overflow-x: scroll;
-      .brand {
-        background: #fff;
-        border-radius: 1em;
-        padding: 0.2em 1em;
-        display: flex;
-        place-items: center;
-        img {
-          width: 8em;
-          margin: auto;
-          object-fit: contain;
-        }
+      place-items: center;
+
+      img {
+        width: 8em;
+        margin: auto;
+        object-fit: contain;
       }
     }
   }

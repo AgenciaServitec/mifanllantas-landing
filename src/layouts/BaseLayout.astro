@@ -3,7 +3,7 @@ import { ViewTransitions } from "astro:transitions";
 import Footer from "./Footer.astro";
 import Header from "./Header.astro";
 import { ButtonFloating } from "../components";
-import { CallButton } from "../components";
+import "@fontsource/acme";
 
 interface Props {
   title?: string;
@@ -38,8 +38,11 @@ const { title = "Multillantas MF Peru" } = Astro.props;
       <div class="main">
         <slot />
       </div>
-      <ButtonFloating />
-      <CallButton />
+      <ButtonFloating type="call" href="tel:981387871" />
+      <ButtonFloating
+        type="whatsapp"
+        href="https://api.whatsapp.com/send?phone=981387871&text=Me%20interesa%20saber%20más%20sobre%20el%20precio%20de%20sus%20productos"
+      />
       <Footer />
     </div>
     <style is:global lang="scss">
@@ -47,6 +50,7 @@ const { title = "Multillantas MF Peru" } = Astro.props;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        font-family: "Acme";
       }
 
       :root {
@@ -62,7 +66,6 @@ const { title = "Multillantas MF Peru" } = Astro.props;
       }
 
       html {
-        font-family: system-ui, sans-serif;
         background: rgb(5, 5, 5);
         color: #fff;
       }
@@ -70,7 +73,6 @@ const { title = "Multillantas MF Peru" } = Astro.props;
       body {
         margin: 0;
         font-size: 16px;
-        overflow-x: hidden;
       }
 
       .general-wrapper {

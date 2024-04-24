@@ -28,7 +28,9 @@ const Drawer = ({ children }) => {
         }}
       >
         <div onClick={hiddenDrawer}></div>
-        <article style={{ background: "#13151a", padding: "2em 1em" }}>
+        <article
+          style={{ background: "var(--color-secondary)", padding: "2em 1em" }}
+        >
           <ul style={{ listStyle: "none" }}>
             <ItemLi text="Inicio" onHiddenDrawer={hiddenDrawer} />
             <ItemLi
@@ -64,8 +66,8 @@ const ItemLi = ({ text, path = "/", onHiddenDrawer }) => (
       href={path}
       style={{
         textDecoration: "none",
+        color: "var(--color-primary)",
       }}
-      className="color__primary"
     >
       {text}
     </a>

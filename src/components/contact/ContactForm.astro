@@ -58,16 +58,23 @@ if (Astro.request.method === "POST") {
       },
     });
 
-    await fetch("https://api-servitecsales.web.app/emails/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(mapContact(formData)),
-    });
+    const response = await fetch(
+      "https://api-servitecsales.web.app/emails/contact",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(mapContact(formData)),
+      }
+    );
 
-    return Astro.redirect("/success")
+    const responseJson = await response.json();
+
+    if (responseJson.ok) {
+      return Astro.redirect("/success");
+    }
   } catch (error) {
     if (error instanceof Error) {
       console.error("Error:", error.message);

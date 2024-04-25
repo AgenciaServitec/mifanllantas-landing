@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "experiments:enable": "pnpm exec firebase experiments:enable webframeworks",
     "deploy:hosting": "pnpm build && firebase deploy --only hosting"
   },
   "dependencies": {

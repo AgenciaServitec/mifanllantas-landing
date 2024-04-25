@@ -3,27 +3,27 @@ import { ViewTransitions } from "astro:transitions";
 import Footer from "./Footer.astro";
 import Header from "./Header.astro";
 import { ButtonFloating } from "../components";
-import "@fontsource/acme";
+import '@fontsource-variable/noto-sans-georgian';
 
 interface Props {
   title?: string;
+  description?: string;
+  keywords?: string;
 }
 
-const { title = "Multillantas MF Peru" } = Astro.props;
+const {
+  title = "Multillantas MF Peru",
+  description = "En Multillantas MF Peru, ofrecemos una variedad de neumáticos para que encuentres el ideal para tu vehículo, sin importar tu presupuesto o el tipo de auto que tengas. Estamos aquí para ayudarte a elegir la mejor opción.",
+  keywords = "venta de llantas,venta llanta, llantas de auto, llantas precios, llantas en lima, ofertas de llantas, venta de neumaticos, promociones de llantas, neumáticos para autos, llantas para autos precios, llantas aro, llantas aro 15, lima caucho, dunlop tires, continental, michelin, hankook, continental, pirelli, yokohama, goodyear, tires, falken, bridgestone, firestone, sumitomo, triangle, westlake, gt radial, aeolus, delinte, federal, general tire, kumho tire, nexen tires, toyo tires",
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="En Multillantas MF Peru, ofrecemos una variedad de neumáticos para que encuentres el ideal para tu vehículo, sin importar tu presupuesto o el tipo de auto que tengas. Estamos aquí para ayudarte a elegir la mejor opción."
-    />
-    <meta
-      name="keywords"
-      content="venta de llantas,venta llanta, llantas de auto, llantas precios, llantas en lima, ofertas de llantas, venta de neumaticos, promociones de llantas, neumáticos para autos, llantas para autos precios, llantas aro, llantas aro 15, lima caucho, dunlop tires, continental, michelin, hankook, continental, pirelli, yokohama, goodyear, tires, falken, bridgestone, firestone, sumitomo, triangle, westlake, gt radial, aeolus, delinte, federal, general tire, kumho tire, nexen tires, toyo tires"
-    />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
 
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
@@ -38,10 +38,9 @@ const { title = "Multillantas MF Peru" } = Astro.props;
       <div class="main">
         <slot />
       </div>
-      <ButtonFloating type="call" href="tel:981387871" />
       <ButtonFloating
         type="whatsapp"
-        href="https://api.whatsapp.com/send?phone=981387871&text=Me%20interesa%20saber%20más%20sobre%20el%20precio%20de%20sus%20productos"
+        href="https://api.whatsapp.com/send/?phone=51900959965&text=Hola%2C%20vengo%20de%20mifanllantas.com%20%C2%BFPodr%C3%ADan%20brindarme%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20llantas%3F"
       />
       <Footer />
     </div>
@@ -50,7 +49,7 @@ const { title = "Multillantas MF Peru" } = Astro.props;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Acme";
+        font-family: 'Noto Sans Georgian Variable', sans-serif;
       }
 
       :root {

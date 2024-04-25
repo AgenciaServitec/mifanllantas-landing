@@ -11,9 +11,9 @@ dependencies:
   '@astrojs/react':
     specifier: ^3.0.7
     version: 3.0.7(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react@18.2.0)(vite@5.0.10)
-  '@fontsource/acme':
-    specifier: ^5.0.19
-    version: 5.0.19
+  '@fontsource-variable/noto-sans-georgian':
+    specifier: ^5.0.22
+    version: 5.0.22
   astro:
     specifier: ^4.0.6
     version: 4.0.6(sass@1.69.4)
@@ -586,8 +586,8 @@ packages:
     dev: false
     optional: true
 
-  /@fontsource/acme@5.0.19:
-    resolution: {integrity: sha512-Z4iq1xDJ8VASDhR7pq/NU9puVbtr1HBywDDgC1hE9uIMz+RVTBwe49tEE/gjj8s8Z+fUJh4S1wDXh4Rpx/Sz0g==}
+  /@fontsource-variable/noto-sans-georgian@5.0.22:
+    resolution: {integrity: sha512-rf+e/iJV/q9IWYRMbfJWWLXS6y3Y3A+xPzXQ45PXdjmOi/OCY6qqd/ODBuHiSBgGduQ/MV5rWWf6tWM3wxPwRA==}
     dev: false
 
   /@jridgewell/gen-mapping@0.3.3:

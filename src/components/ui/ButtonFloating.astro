@@ -11,6 +11,10 @@ const { type, href } = Astro.props;
 
 <div class=`btn ${type}`>
   <a href={href} target="_blank" rel="noreferrer" class="btn__icon">
+    <div class="btn__text">
+      <p>Servicio whatsapp</p>
+      <p>900959965</p>
+    </div>
     {
       type === "whatsapp" ? (
         <Icon pack="mdi" name="whatsapp" size={50} />
@@ -26,21 +30,25 @@ const { type, href } = Astro.props;
 <style lang="scss">
   .btn {
     position: fixed;
-    left: 1em;
+    left: 0;
     z-index: 998;
     text-decoration: none;
-    border-radius: 50%;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+
+    &__text {
+      p:last-child {
+        font-size: 1.5em;
+      }
+    }
 
     &__icon {
+      text-decoration: none;
       border: none;
-      height: 4.5em;
-      width: 4.5em;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 0.5em;
     }
   }
 
@@ -55,15 +63,6 @@ const { type, href } = Astro.props;
         0 0 7px var(--color-secondary),
         0 0 12px var(--color-secondary),
         0 0 22px var(--color-secondary);
-    }
-
-    @keyframes call {
-      from {
-        transform: scale(1);
-      }
-      to {
-        transform: scale(1.1);
-      }
     }
 
     .btn__icon {
@@ -82,15 +81,6 @@ const { type, href } = Astro.props;
         0 0 7px var(--background-whatsapp),
         0 0 12px var(--background-whatsapp),
         0 0 22px var(--background-whatsapp);
-    }
-
-    @keyframes whatsapp {
-      from {
-        transform: scale(1);
-      }
-      to {
-        transform: scale(1.1);
-      }
     }
 
     .btn__icon {

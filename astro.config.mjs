@@ -11,7 +11,7 @@ export default defineConfig({
   },
   compressHTML: true,
   prefetch: true,
-  output: "hybrid",
+  output: "server",
   site: seoConfig.baseURL,
   adapter: netlify()
 });

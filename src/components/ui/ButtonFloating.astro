@@ -1,58 +1,100 @@
 ---
 import Icon from "astro-icon";
+
+interface Props {
+  type: "whatsapp" | "call";
+  href: string;
+}
+
+const { type, href } = Astro.props;
 ---
 
-<div>
-  <a
-    href="https://api.whatsapp.com/send?phone=981387871&text=Me%20interesa%20saber%20más%20sobre%20el%20precio%20de%20sus%20productos"
-    target="_blank"
-    rel="noreferrer"
-  >
-    <button>
-      <div class="item-icon">
-        <Icon pack="mdi" name="whatsapp" size={40} />
-      </div>
-      <div class="item-text">
-        <div>Servicio Whatsapp</div>
-        <div>981387871</div>
-      </div>
-    </button>
+<div class=`btn ${type}`>
+  <a href={href} target="_blank" rel="noreferrer" class="btn__icon">
+    {
+      type === "whatsapp" ? (
+        <Icon pack="mdi" name="whatsapp" size={50} />
+      ) : type === "call" ? (
+        <Icon pack="mdi" name="call" size={50} />
+      ) : (
+        ""
+      )
+    }
   </a>
 </div>
 
 <style lang="scss">
-  a {
+  .btn {
     position: fixed;
-    right: 0;
-    bottom: 6rem;
+    left: 1em;
     z-index: 998;
     text-decoration: none;
+    border-radius: 50%;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+
+    &__icon {
+      border: none;
+      height: 4.5em;
+      width: 4.5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
-  button {
-    background: var(--background-whatsapp);
-    padding: 0.5rem 0.8rem;
-    border: none;
-    margin-bottom: 2rem;
-    height: auto;
-    width: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top-left-radius: 7rem;
-    border-bottom-left-radius: 7rem;
-    .item-icon {
-      color: #fff;
+  .call {
+    background-color: var(--color-secondary);
+    bottom: 10rem;
+    animation-name: call;
+
+    &:hover {
+      box-shadow:
+        0 0 2px var(--color-secondary),
+        0 0 7px var(--color-secondary),
+        0 0 12px var(--color-secondary),
+        0 0 22px var(--color-secondary);
     }
-    .item-text {
-      font-size: 1rem;
+
+    @keyframes call {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.1);
+      }
+    }
+
+    .btn__icon {
+      color: var(--color-primary);
+    }
+  }
+
+  .whatsapp {
+    background-color: var(--background-whatsapp);
+    bottom: 4rem;
+    animation-name: whatsapp;
+
+    &:hover {
+      box-shadow:
+        0 0 2px var(--background-whatsapp),
+        0 0 7px var(--background-whatsapp),
+        0 0 12px var(--background-whatsapp),
+        0 0 22px var(--background-whatsapp);
+    }
+
+    @keyframes whatsapp {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.1);
+      }
+    }
+
+    .btn__icon {
       color: #fff;
-      div {
-        line-height: 1.5rem;
-      }
-      div:last-child {
-        font-size: 1.5rem;
-      }
     }
   }
 </style>

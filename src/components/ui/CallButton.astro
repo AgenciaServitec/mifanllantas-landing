@@ -1,53 +1,59 @@
 ---
 import Icon from "astro-icon";
+
+interface Props {
+  type: "whatsapp" | "call";
+  href: string;
+}
+
+const { type, href } = Astro.props;
 ---
 
-<div>
-  <a href="tel:981387871" target="_blank" rel="noreferrer">
-    <button>
-      <div class="item-text">
-        <div>Contáctanos</div>
-        <div>981387871</div>
-      </div>
-      <div class="item-icon">
-        <Icon pack="mdi" name="call" size={30} />
-      </div>
-    </button>
+<div class=`btn ${type}`>
+  <a href={href} target="_blank" rel="noreferrer" class="btn__icon">
+    {
+      type === "whatsapp" ? (
+        <Icon pack="mdi" name="whatsapp" size={50} />
+      ) : type === "call" ? (
+        <Icon pack="mdi" name="call" size={50} />
+      ) : (
+        ""
+      )
+    }
   </a>
 </div>
 
 <style lang="scss">
-  a {
+  .btn {
     position: fixed;
-    right: left;
-    bottom: 14rem;
+    left: 1em;
     z-index: 998;
     text-decoration: none;
+    border-radius: 50%;
+
+    &__icon {
+      border: none;
+      height: 4.5em;
+      width: 4.5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
-  button {
-    background: var(--color-secondary);
-    padding: 0.2rem 0.8rem;
-    border: none;
-    height: auto;
-    width: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top-right-radius: 7rem;
-    border-bottom-right-radius: 7rem;
-    .item-icon {
-      color: var(--color-primary);
+  .whatsapp {
+    background-color: var(--background-whatsapp);
+    bottom: 20rem;
+    .btn__icon {
+      color: #fff;
     }
-    .item-text {
-      font-size: 0.8rem;
+  }
+
+  .call {
+    background-color: var(--color-secondary);
+    bottom: 30rem;
+    .btn__icon {
       color: var(--color-primary);
-      div {
-        line-height: 1.5rem;
-      }
-      div:last-child {
-        font-size: 1rem;
-      }
     }
   }
 </style>

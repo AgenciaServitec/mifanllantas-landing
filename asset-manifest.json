@@ -1,9 +1,9 @@
 {
-  "name": "Alvillanta",
-  "short_name": "Alvillanta",
+  "name": "Mifan Llantas",
+  "short_name": "mifanllantas",
   "icons": [
     {
-      "src": "https://venta-llantas.com/favicon.webp",
+      "src": "https://mifanllantas.web.app/favicon.webp",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"

@@ -8,6 +8,9 @@ dependencies:
   '@astrojs/react':
     specifier: ^3.0.7
     version: 3.0.7(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react@18.2.0)(vite@5.0.10)
+  '@fontsource/acme':
+    specifier: ^5.0.19
+    version: 5.0.19
   astro:
     specifier: ^4.0.6
     version: 4.0.6(sass@1.69.4)
@@ -567,6 +570,10 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fontsource/acme@5.0.19:
+    resolution: {integrity: sha512-Z4iq1xDJ8VASDhR7pq/NU9puVbtr1HBywDDgC1hE9uIMz+RVTBwe49tEE/gjj8s8Z+fUJh4S1wDXh4Rpx/Sz0g==}
+    dev: false
 
   /@jridgewell/gen-mapping@0.3.3:
     resolution: {integrity: sha512-HLhSWOLRi875zjjMG/r+Nv0oCW8umGb0BgEhyX3dDX3egwZtB8PqLnjz3yedt8R5StBrzcg4aBpnh8UA9D1BoQ==}

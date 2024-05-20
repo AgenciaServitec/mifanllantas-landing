@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@astrojs/netlify": "^5.2.0",
+    "@astrojs/partytown": "^2.1.0",
     "@astrojs/react": "^3.0.7",
     "@fontsource-variable/noto-sans-georgian": "^5.0.22",
     "astro": "^4.0.6",

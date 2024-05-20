@@ -3,18 +3,20 @@ import { ViewTransitions } from "astro:transitions";
 import Footer from "./Footer.astro";
 import Header from "./Header.astro";
 import { ButtonFloating } from "../components";
-import '@fontsource-variable/noto-sans-georgian';
+import "@fontsource-variable/noto-sans-georgian";
 
 interface Props {
   title?: string;
   description?: string;
   keywords?: string;
+  googleTag?: boolean;
 }
 
 const {
   title = "Venta de Llantas en Lima, Perú | Multillantas MF Peru",
   description = "En Multillantas MF Peru, ofrecemos una variedad de neumáticos para que encuentres el ideal para tu vehículo, sin importar tu presupuesto o el tipo de auto que tengas. Estamos aquí para ayudarte a elegir la mejor opción.",
   keywords = "venta de llantas,venta llanta, llantas de auto, llantas precios, llantas en lima, ofertas de llantas, venta de neumaticos, promociones de llantas, neumáticos para autos, llantas para autos precios, llantas aro, llantas aro 15, lima caucho, dunlop tires, continental, michelin, hankook, continental, pirelli, yokohama, goodyear, tires, falken, bridgestone, firestone, sumitomo, triangle, westlake, gt radial, aeolus, delinte, federal, general tire, kumho tire, nexen tires, toyo tires",
+  googleTag,
 } = Astro.props;
 ---
 
@@ -29,6 +31,25 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16557569414"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-16557569414");
+    </script>
+
+    {googleTag && (
+      // Event snippet for Solicitar cotización conversion page
+    <script> 
+      gtag('event', 'conversion', {'send_to': 'AW-16557569414/DzVSCMqg3K0ZEIbrodc9'}); 
+    </script>)}
 
     <ViewTransitions />
   </head>
@@ -49,7 +70,7 @@ const {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Noto Sans Georgian Variable', sans-serif;
+        font-family: "Noto Sans Georgian Variable", sans-serif;
       }
 
       :root {
